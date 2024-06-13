@@ -70,9 +70,27 @@
 - **장르**: 1인칭 로프액션 어드벤처
 - **개발자**: N-ZO
 
-### 개발 팀(N-ZO)
+## 개발 팀(N-ZO)
 - **기획**: [박준수](https://github.com/ParkGom-JS)
 - **3D 그래픽 및 애니메이터**: [김한결, 김 수, 안현준, 최민규, 김동우]
 - **프로그래머**: [김재홍](https://github.com/ravking77777)
 - **사운드 디자이너**: [JAX]
+
+## 프로젝트 기여자
+
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/username"><img src="https://avatars.githubusercontent.com/username?v=4" width="100px;" alt=""/><br /><sub><b>Username</b></sub></a><br /><a href="#code-username" title="Code">💻</a></td>
+    <!-- 추가된 기여자 아이콘들이 여기에 표시됩니다 -->
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 ---
