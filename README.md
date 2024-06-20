@@ -68,11 +68,13 @@
 ## 정보
 - **제목**: Granpa talk with Top(그랜파 톡 윗 탑)
 - **장르**: 1인칭 로프액션 어드벤처
-- **개발자**: N-ZO
+- **개발팀**: N-ZO
 
 ## 개발 팀(N-ZO)
 - **기획**: [박준수](https://github.com/ParkGom-JS)
 - **3D 그래픽 및 애니메이터**: [김한결, 김 수, 안현준, 최민규, 김동우]
 - **프로그래머**: [김재홍](https://github.com/ravking77777)
 - **사운드 디자이너**: [JAX]
+- **개발 자문 및 도움**: [임한균](https://github.com/roy5820)
+- **게임 프로필 번역**: [신민철](https://github.com/SinMinCher)
 
