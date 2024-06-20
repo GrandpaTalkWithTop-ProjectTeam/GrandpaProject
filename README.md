@@ -78,3 +78,9 @@
 - **개발 자문 및 도움**: [임한균](https://github.com/roy5820)
 - **게임 프로필 번역**: [신민철](https://github.com/SinMinCher)
 
+## 기여자
+<a href="https://github.com/GrandpaTalkWithTop-ProjectTeam/GrandpaProject/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=GrandpaTalkWithTop-ProjectTeam/GrandpaProject" />
+</a>
+
+
