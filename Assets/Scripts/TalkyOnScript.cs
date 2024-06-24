@@ -29,6 +29,6 @@ public class TalkyOnScript : MonoBehaviour
     {
         isEscapePressed = true;
         animm.SetBool("TalkyDown", false);
-        Invoke("DisableObject", 0.5f); // 1ÃÊ ÈÄ¿¡ DisableObject ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+        Invoke("DisableObject", 0.5f); // 1ì´ˆ í›„ì— DisableObject í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
     }
 }

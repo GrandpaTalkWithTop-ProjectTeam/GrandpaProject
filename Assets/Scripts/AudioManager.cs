@@ -8,15 +8,12 @@ public class AudioManager : MonoBehaviour
 
     [Header("#BGM")]
     public AudioClip bgmClip;
-    
     public float bgmVolume;
     AudioSource bgmPlayer;
-
 
     [Header("#Voice")]
     public AudioClip vocClip;
     public GameObject isTalkyOn;
-
     public float vocVolume;
     AudioSource vocPlayer;
     private bool vUp = false;
@@ -28,11 +25,7 @@ public class AudioManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex;
     public GameObject audioListener;
-    
-
-
     public enum Sfx { Button, Hook, Jump, Slide, Footstep, Switch, FVoice001}
-
 
     void Awake()
     {
@@ -41,20 +34,16 @@ public class AudioManager : MonoBehaviour
         VOCInit();
         Init();
         AudioManager.instance.PlayBgm(true);
-        
     }
 
     void Update()
     {
-
-
-        // vocPlayer°¡ Àç»ı ÁßÀÏ ¶§
+        // vocPlayerê°€ ì¬ìƒ ì¤‘ì¼ ë•Œ
         if (vocPlayer.isPlaying)
         {
-            // bgmPlayerÀÇ º¼·ıÀ» Á¡ÁøÀûÀ¸·Î ÁÙÀÓ
+            // bgmPlayerì˜ ë³¼ë¥¨ì„ ì ì§„ì ìœ¼ë¡œ ì¤„ì„
             if (bgmPlayer.volume > bgmVolume * 0.2)
                 bgmPlayer.volume -= bgmVolume * 0.5f * Time.deltaTime;
-        
             vUp= true;
         }
         else
@@ -66,8 +55,7 @@ public class AudioManager : MonoBehaviour
 
                 vUp = false;
             }
-
-            // vocPlayer°¡ Àç»ı ÁßÀÌ ¾Æ´Ï¸é bgmPlayerÀÇ º¼·ıÀ» ´Ù½Ã ÃÖ´ë º¼·ıÀ¸·Î º¹¿ø
+            // vocPlayerê°€ ì¬ìƒ ì¤‘ì´ ì•„ë‹ˆë©´ bgmPlayerì˜ ë³¼ë¥¨ì„ ë‹¤ì‹œ ìµœëŒ€ ë³¼ë¥¨ìœ¼ë¡œ ë³µì›
             if (bgmPlayer.volume < bgmVolume)
                 bgmPlayer.volume += bgmVolume * 0.5f * Time.deltaTime;
             else
@@ -96,32 +84,30 @@ public class AudioManager : MonoBehaviour
     public void BGMSlideEvent(float value)
     {
         bgmVolume = value;
-        // ¹è°æÀ½ ¼Ò¸® Á¶Àı
+        // ë°°ê²½ìŒ ì†Œë¦¬ ì¡°ì ˆ
         bgmPlayer.volume = bgmVolume;
     }
 
     public void VOCSlideEvent(float value)
     {
         vocVolume = value;
-        // ¹è°æÀ½ ¼Ò¸® Á¶Àı
+        // ë°°ê²½ìŒ ì†Œë¦¬ ì¡°ì ˆ
         vocPlayer.volume = vocVolume;
     }
 
     public void SFXSlideEvent(float value)
     {
         sfxVolume = value;
-        // È¿°úÀ½ ¼Ò¸® Á¶Àı
+        // íš¨ê³¼ìŒ ì†Œë¦¬ ì¡°ì ˆ
         foreach (var player in sfxPlayers)
         {
             player.volume = sfxVolume;
         }
     }
 
-
-
     void BGMInit()
     {
-        //¹è°æÀ½ ÇÃ·¹ÀÌ¾î ÃÊ±âÈ­
+        //ë°°ê²½ìŒ í”Œë ˆì´ì–´ ì´ˆê¸°í™”
         GameObject bgmObject = new GameObject("BgmPlayer");
         bgmObject.transform.parent = transform;
         bgmPlayer = bgmObject.AddComponent<AudioSource>();
@@ -133,7 +119,7 @@ public class AudioManager : MonoBehaviour
 
     void VOCInit()
     {
-        //¹è°æÀ½ ÇÃ·¹ÀÌ¾î ÃÊ±âÈ­
+        //ë°°ê²½ìŒ í”Œë ˆì´ì–´ ì´ˆê¸°í™”
         GameObject vocObject = new GameObject("VocPlayer");
         vocObject.transform.parent = transform;
         vocPlayer = vocObject.AddComponent<AudioSource>();
@@ -145,9 +131,7 @@ public class AudioManager : MonoBehaviour
 
     void Init()
     {
-        
-
-        //È¿°úÀ½ ÇÃ·¹ÀÌ¾î ÃÊ±âÈ­
+        //íš¨ê³¼ìŒ í”Œë ˆì´ì–´ ì´ˆê¸°í™”
         GameObject sfxObject = new GameObject("SfxPlayer");
         sfxObject.transform.parent = transform;
         sfxPlayers = new AudioSource[channels];
@@ -156,8 +140,6 @@ public class AudioManager : MonoBehaviour
         {
             sfxPlayers[index] = sfxObject.AddComponent<AudioSource>();
             sfxPlayers[index].playOnAwake=false;
-            
-
         }
     }
 
@@ -218,7 +200,6 @@ public class AudioManager : MonoBehaviour
             channelIndex = loopIndex;
             sfxPlayers[loopIndex].volume = sfxVolume;
             sfxPlayers[loopIndex].spatialBlend = 1;
-
             sfxPlayers[loopIndex].clip = sfxClips[(int)sfx];
             sfxPlayers[loopIndex].transform.position = sfxObject.transform.position;
             sfxPlayers[loopIndex].pitch = spitch;

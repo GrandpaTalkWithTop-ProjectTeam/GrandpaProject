@@ -11,14 +11,14 @@ public class GrapCheckScript : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
   
-            // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ B ·¹ÀÌ¾î¿¡ ¼ÓÇÏ´ÂÁö È®ÀÎ
+            // ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ê°€ B ë ˆì´ì–´ì— ì†í•˜ëŠ”ì§€ í™•ì¸
             if (collision.gameObject.layer == targetLayer)
             {
-                // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®ÀÇ ½ºÅ©¸³Æ®¿¡ Á¢±ÙÇÏ¿© cCheck º¯¼ö¸¦ true·Î º¯°æ
+                // ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ì˜ ìŠ¤í¬ë¦½íŠ¸ì— ì ‘ê·¼í•˜ì—¬ cCheck ë³€ìˆ˜ë¥¼ trueë¡œ ë³€ê²½
                 SphereGrapScript scriptOnCollidedObject = collision.gameObject.GetComponent<SphereGrapScript>();
                 if (scriptOnCollidedObject != null)
                 {
-                    // cCheck º¯¼ö¸¦ true·Î º¯°æ
+                    // cCheck ë³€ìˆ˜ë¥¼ trueë¡œ ë³€ê²½
                     scriptOnCollidedObject.switchOn = true;
                 }
             }
