@@ -3,27 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Button : MonoBehaviour
 {
-
-    public Material nm1; // º¯°æÇÒ »õ·Î¿î ¸ÓÆ¼¸®¾óÀ» ÇÒ´çÇÒ º¯¼ö
+    public Material nm1; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public Material nm2;
-    public Transform object1; // Ã¹ ¹øÂ° ¿ÀºêÁ§Æ®ÀÇ Transform
-    public Transform object2; // µÎ ¹øÂ° ¿ÀºêÁ§Æ®ÀÇ Transform
+    public Transform object1; // Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Transform
+    public Transform object2; // ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Transform
     public KeyCode conKey;
     public float conCool = 0;
 
     public Camera cam;
     public GameObject interText;
 
-    public List<Animator> objectAnimators; // ¿©·¯ Animator ÄÄÆ÷³ÍÆ®¸¦ °ü¸®ÇÏ±â À§ÇÑ ¸®½ºÆ®
-    public string animationTrigger; // È°¼ºÈ­ÇÒ ¾Ö´Ï¸ÞÀÌ¼ÇÀÇ Æ®¸®°Å ÀÌ¸§
-
+    public List<Animator> objectAnimators; // ï¿½ï¿½ï¿½ï¿½ Animator ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+    public string animationTrigger; // È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 
     void Update()
     {
-
         float distance = Vector3.Distance(object1.position, object2.position);
 
         if (conCool > 0)
@@ -32,12 +28,11 @@ public class Button : MonoBehaviour
         }
         else
         {
-            Renderer rend = GetComponent<Renderer>(); // ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ Renderer ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+            Renderer rend = GetComponent<Renderer>(); // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Renderer ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (rend.material = nm2)
             {
                 rend.material = nm1;
             }
-
         }
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -52,27 +47,25 @@ public class Button : MonoBehaviour
 
                 igt.exposeDelay = 2f;
 
-
                 if (Input.GetKey(conKey))
                 {
                     Renderer rend = GetComponent<Renderer>();
                     rend.material = nm2;
 
-                    // ¸ðµç ¾Ö´Ï¸ÞÀÌÅÍ¿¡ ´ëÇØ ¾Ö´Ï¸ÞÀÌ¼Ç Æ®¸®°Å È°¼ºÈ­
+                    // ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
                     foreach (Animator animator in objectAnimators)
                     {
                         animator.SetTrigger(animationTrigger);
                     }
 
                     conCool = 3f;
-                    AudioManager.instance.PlaySfx3D(AudioManager.Sfx.Switch, this.gameObject, Random.Range(0.8f, 1.2f));
+                    AudioManager.instance.PlaySfx3D(
+                        AudioManager.Sfx.Switch,
+                        this.gameObject,
+                        Random.Range(0.8f, 1.2f)
+                    );
                 }
             }
-
         }
     }
 }
-
-   
-
-

@@ -6,15 +6,12 @@ public class BoxRemove : MonoBehaviour
 {
     public GameObject targetObject;
 
-    
     [SerializeField]
     private Animator anim;
     public GameObject pl;
 
-    private bool rmatonce=false;
+    private bool rmatonce = false;
     public Animator anima;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,31 +23,23 @@ public class BoxRemove : MonoBehaviour
     void Update()
     {
         if (targetObject != null)
-        if (rmatonce==false)
-        { 
-
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
-        {
-
-            if (targetObject.transform.parent != null)
+            if (rmatonce == false)
             {
-                targetObject.transform.parent = null;
-                targetObject.AddComponent<TimerDelete>();
+                if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
+                {
+                    if (targetObject.transform.parent != null)
+                    {
+                        targetObject.transform.parent = null;
+                        targetObject.AddComponent<TimerDelete>();
+                    }
 
-            }
-
-            
-
-            Rigidbody crb = targetObject.AddComponent<Rigidbody>();
-            crb.useGravity = true;
+                    Rigidbody crb = targetObject.AddComponent<Rigidbody>();
+                    crb.useGravity = true;
 
                     anima.speed = 2f;
 
                     rmatonce = true;
-
-        }
-
-        }
-
+                }
+            }
     }
 }

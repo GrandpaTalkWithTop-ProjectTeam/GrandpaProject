@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CNormalMove : MonoBehaviour
 {
-    public float speed = 20f; // ÀÌµ¿ ¼Óµµ
+    public float speed = 20f; // ï¿½Ìµï¿½ ï¿½Óµï¿½
     private Rigidbody rb;
     public float deathTime = 300f;
 
@@ -15,14 +15,14 @@ public class CNormalMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true; // isKinematicÀ» true·Î ¼³Á¤
+        rb.isKinematic = true; // isKinematicï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        pSwing= Player.GetComponent<Swinging>();
+        pSwing = Player.GetComponent<Swinging>();
     }
 
     void FixedUpdate()
     {
-        // Æ¯Á¤ ¹æÇâÀ¸·Î ÀÌµ¿
+        // Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         MoveForward();
 
         if (deathTime > 0)
@@ -31,20 +31,17 @@ public class CNormalMove : MonoBehaviour
         {
             if (prediction.transform.parent == this.transform)
             {
-
                 prediction.transform.parent = null;
                 pSwing.StopSwinging();
-
             }
 
             Destroy(this.gameObject);
         }
-
     }
 
     void MoveForward()
     {
-        // Rigidbody¸¦ Á÷Á¢ ÀÌ¿ëÇÏ¿© Æ¯Á¤ ¹æÇâÀ¸·Î ÀÌµ¿
+        // Rigidbodyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         Vector3 moveDirection = transform.parent.forward;
         rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
     }

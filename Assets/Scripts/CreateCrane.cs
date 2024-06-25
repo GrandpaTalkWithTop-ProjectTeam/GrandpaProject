@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class CreateCrane : MonoBehaviour
 {
-
     private float CTcool = 5f;
-
 
     [SerializeField]
     private GameObject Cr;
+
     [SerializeField]
     private Transform ct;
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -28,10 +19,13 @@ public class CreateCrane : MonoBehaviour
             CTcool -= Time.smoothDeltaTime;
         else
         {
-            GameObject clone = Instantiate(Cr, this.transform.position, Quaternion.Euler(-90,0,90));
+            GameObject clone = Instantiate(
+                Cr,
+                this.transform.position,
+                Quaternion.Euler(-90, 0, 90)
+            );
             clone.transform.parent = ct.transform;
             clone.SetActive(true);
-            
 
             CTcool = 5f;
         }

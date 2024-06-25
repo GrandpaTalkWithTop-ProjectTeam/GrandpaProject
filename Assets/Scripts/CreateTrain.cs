@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class CreateTrain : MonoBehaviour
 {
-    
     private float CTcool = 1f;
     public bool BTrain_Call = false;
-    
+
     [SerializeField]
     private GameObject CTrain;
+
     [SerializeField]
     private GameObject BTrain;
+
     [SerializeField]
     private Transform ct;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if  (CTcool > 0)
-            CTcool-=Time.smoothDeltaTime;
+        if (CTcool > 0)
+            CTcool -= Time.smoothDeltaTime;
         else
         {
             if (BTrain_Call == false)
@@ -42,10 +37,8 @@ public class CreateTrain : MonoBehaviour
                 clone.SetActive(true);
                 BTrain_Call = false;
             }
-            
 
-
-                CTcool = 10f;
+            CTcool = 10f;
         }
     }
 }

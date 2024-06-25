@@ -25,7 +25,17 @@ public class AudioManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex;
     public GameObject audioListener;
-    public enum Sfx { Button, Hook, Jump, Slide, Footstep, Switch, FVoice001}
+
+    public enum Sfx
+    {
+        Button,
+        Hook,
+        Jump,
+        Slide,
+        Footstep,
+        Switch,
+        FVoice001
+    }
 
     void Awake()
     {
@@ -44,7 +54,7 @@ public class AudioManager : MonoBehaviour
             // bgmPlayer의 볼륨을 점진적으로 줄임
             if (bgmPlayer.volume > bgmVolume * 0.2)
                 bgmPlayer.volume -= bgmVolume * 0.5f * Time.deltaTime;
-            vUp= true;
+            vUp = true;
         }
         else
         {
@@ -69,7 +79,6 @@ public class AudioManager : MonoBehaviour
         BGMInit();
 
         AudioManager.instance.PlayBgm(true);
-
     }
 
     public void VOCAwake()
@@ -78,7 +87,6 @@ public class AudioManager : MonoBehaviour
         VOCInit();
 
         AudioManager.instance.PlayVoc(true);
-
     }
 
     public void BGMSlideEvent(float value)
@@ -136,10 +144,10 @@ public class AudioManager : MonoBehaviour
         sfxObject.transform.parent = transform;
         sfxPlayers = new AudioSource[channels];
 
-        for(int index=0; index< sfxPlayers.Length; index++)
+        for (int index = 0; index < sfxPlayers.Length; index++)
         {
             sfxPlayers[index] = sfxObject.AddComponent<AudioSource>();
-            sfxPlayers[index].playOnAwake=false;
+            sfxPlayers[index].playOnAwake = false;
         }
     }
 
@@ -215,7 +223,4 @@ public class AudioManager : MonoBehaviour
             player.Stop();
         }
     }
-
-    
-
 }

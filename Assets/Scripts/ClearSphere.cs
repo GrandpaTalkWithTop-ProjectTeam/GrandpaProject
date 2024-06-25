@@ -6,7 +6,4 @@ public class ClearSphere : MonoBehaviour
 {
     public bool clearSphere;
     public bool clearOn;
-
-
-
 }

@@ -9,8 +9,8 @@ public class CatchableRopeScript : MonoBehaviour
     public string newLayerName = "whatIsGrappleable";
     private Rigidbody rb;
 
-    public bool throwed=false;
-    public bool attached=false;
+    public bool throwed = false;
+    public bool attached = false;
 
     void Start()
     {
@@ -29,14 +29,13 @@ public class CatchableRopeScript : MonoBehaviour
             {
                 if (collision.contacts.Length > 0)
                 {
-
                     ContactPoint contact = collision.contacts[0];
                     Vector3 hitNormal = contact.normal;
 
-                    // Ãæµ¹ Ç¥¸éÀÇ ¹ý¼± º¤ÅÍ·Î È¸Àü°ª °è»ê
+                    // ï¿½æµ¹ Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í·ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
                     Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, hitNormal);
 
-                    // ÇöÀç ¿ÀºêÁ§Æ®¸¦ È¸Àü°ª¿¡ µû¶ó È¸Àü
+                    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
                     transform.rotation = rotation;
 
                     rb.isKinematic = true;
@@ -45,8 +44,6 @@ public class CatchableRopeScript : MonoBehaviour
                     attached = true;
 
                     transform.SetParent(collision.transform);
-
-
                 }
             }
         }
@@ -54,20 +51,19 @@ public class CatchableRopeScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ³¡³ª¸é ¾Ö´Ï¸ÞÀÌ¼Ç ¼Óµµ¸¦ 0À¸·Î ¼³Á¤
+        // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Óµï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
         {
             GoToEndFrame();
 
-            if (throwed==false)
-                GoToStartFrame();  
+            if (throwed == false)
+                GoToStartFrame();
         }
     }
 
-
     void GoToEndFrame()
     {
-        // ¾Ö´Ï¸ÞÀÌ¼ÇÀÇ ³¡ ÇÁ·¹ÀÓÀ¸·Î ÀÌµ¿
+        // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         float animationLength = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         animator.Play(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name, 0, 0.9f);
         animator.speed = 0f;
@@ -75,10 +71,9 @@ public class CatchableRopeScript : MonoBehaviour
 
     void GoToStartFrame()
     {
-        // ¾Ö´Ï¸ÞÀÌ¼ÇÀÇ ³¡ ÇÁ·¹ÀÓÀ¸·Î ÀÌµ¿
+        // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         float animationLength = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         animator.Play(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name, 0, 0f);
         animator.speed = 0f;
     }
-
 }
