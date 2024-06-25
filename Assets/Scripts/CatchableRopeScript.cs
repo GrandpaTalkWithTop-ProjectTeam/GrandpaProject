@@ -32,10 +32,8 @@ public class CatchableRopeScript : MonoBehaviour
                     ContactPoint contact = collision.contacts[0];
                     Vector3 hitNormal = contact.normal;
 
-                    // �浹 ǥ���� ���� ���ͷ� ȸ���� ���
                     Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, hitNormal);
 
-                    // ���� ������Ʈ�� ȸ������ ���� ȸ��
                     transform.rotation = rotation;
 
                     rb.isKinematic = true;
@@ -51,7 +49,6 @@ public class CatchableRopeScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        // �ִϸ��̼��� ������ �ִϸ��̼� �ӵ��� 0���� ����
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
         {
             GoToEndFrame();
@@ -63,7 +60,6 @@ public class CatchableRopeScript : MonoBehaviour
 
     void GoToEndFrame()
     {
-        // �ִϸ��̼��� �� ���������� �̵�
         float animationLength = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         animator.Play(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name, 0, 0.9f);
         animator.speed = 0f;
@@ -71,7 +67,6 @@ public class CatchableRopeScript : MonoBehaviour
 
     void GoToStartFrame()
     {
-        // �ִϸ��̼��� �� ���������� �̵�
         float animationLength = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         animator.Play(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name, 0, 0f);
         animator.speed = 0f;

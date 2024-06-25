@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CircleCall : MonoBehaviour
 {
-    public Transform player; // ù ��° ������Ʈ�� Transform
+    public Transform player;
     public KeyCode conKey;
     public float conCool = 0;
     public Camera cam;
@@ -45,7 +45,6 @@ public class CircleCall : MonoBehaviour
             Physics.Raycast(cam.transform.position, cam.transform.forward, out raycastHit, distance)
         )
         {
-            // ���콺�� ������Ʈ ���� ���� �� ������ �۾�
             if (
                 (raycastHit.collider.gameObject == this.gameObject)
                 && (conCool <= 0)

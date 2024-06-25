@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CNormalMove : MonoBehaviour
 {
-    public float speed = 20f; // �̵� �ӵ�
+    public float speed = 20f;
     private Rigidbody rb;
     public float deathTime = 300f;
 
@@ -15,14 +15,13 @@ public class CNormalMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true; // isKinematic�� true�� ����
+        rb.isKinematic = true; 
 
         pSwing = Player.GetComponent<Swinging>();
     }
 
     void FixedUpdate()
     {
-        // Ư�� �������� �̵�
         MoveForward();
 
         if (deathTime > 0)
@@ -41,7 +40,6 @@ public class CNormalMove : MonoBehaviour
 
     void MoveForward()
     {
-        // Rigidbody�� ���� �̿��Ͽ� Ư�� �������� �̵�
         Vector3 moveDirection = transform.parent.forward;
         rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
     }

@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class Button : MonoBehaviour
 {
-    public Material nm1; // ������ ���ο� ��Ƽ������ �Ҵ��� ����
+    public Material nm1; 
     public Material nm2;
-    public Transform object1; // ù ��° ������Ʈ�� Transform
-    public Transform object2; // �� ��° ������Ʈ�� Transform
+    public Transform object1;
+    public Transform object2;
     public KeyCode conKey;
     public float conCool = 0;
 
     public Camera cam;
     public GameObject interText;
 
-    public List<Animator> objectAnimators; // ���� Animator ������Ʈ�� �����ϱ� ���� ����Ʈ
-    public string animationTrigger; // Ȱ��ȭ�� �ִϸ��̼��� Ʈ���� �̸�
+    public List<Animator> objectAnimators;
+    public string animationTrigger;
 
     void Update()
     {
@@ -52,7 +52,7 @@ public class Button : MonoBehaviour
                     Renderer rend = GetComponent<Renderer>();
                     rend.material = nm2;
 
-                    // ��� �ִϸ����Ϳ� ���� �ִϸ��̼� Ʈ���� Ȱ��ȭ
+                    
                     foreach (Animator animator in objectAnimators)
                     {
                         animator.SetTrigger(animationTrigger);
