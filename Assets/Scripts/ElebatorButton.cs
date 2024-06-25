@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ElebatorButton : MonoBehaviour
 {
-    public float moveSpeed = 5f; // ÀÌµ¿ ¼Óµµ
+    public float moveSpeed = 5f; // ì´ë™ ì†ë„
 
-    private float upperLimit = 10f; // À§·Î ÀÌµ¿ °¡´ÉÇÑ ÃÖ´ë ³ôÀÌ
-    private float lowerLimit = 0f; // ¾Æ·¡·Î ÀÌµ¿ °¡´ÉÇÑ ÃÖ¼Ò ³ôÀÌ
+    private float upperLimit = 10f; // ìœ„ë¡œ ì´ë™ ê°€ëŠ¥í•œ ìµœëŒ€ ë†’ì´
+    private float lowerLimit = 0f; // ì•„ë˜ë¡œ ì´ë™ ê°€ëŠ¥í•œ ìµœì†Œ ë†’ì´
 
     public float Limiter = 10f;
-    public bool moveUp = false; // À§·Î ÀÌµ¿ ÁßÀÎÁö ¿©ºÎ¸¦ ³ªÅ¸³»´Â ÇÃ·¡±×
+    public bool moveUp = false; // ìœ„ë¡œ ì´ë™ ì¤‘ì¸ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í”Œë˜ê·¸
     Vector3 currentPosition;
 
     [HideInInspector]
@@ -34,7 +34,7 @@ public class ElebatorButton : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ¿òÁ÷ÀÓ Á¦¾î
+        // ì›€ì§ì„ ì œì–´
         MoveUpDown();
 
         if (mdel > 0)
@@ -58,13 +58,13 @@ public class ElebatorButton : MonoBehaviour
 
     void MoveUpDown()
     {
-        // ÇöÀç À§Ä¡¸¦ ÀúÀå
+        // í˜„ì¬ ìœ„ì¹˜ë¥¼ ì €ì¥
         
 
-        // À§ ¹æÇâÀ¸·Î ÀÌµ¿ÇÒ ¾ç °è»ê
+        // ìœ„ ë°©í–¥ìœ¼ë¡œ ì´ë™í•  ì–‘ ê³„ì‚°
         float moveAmount = moveSpeed * Time.deltaTime;
 
-        // moveUp ÇÃ·¡±×¿¡ µû¶ó À§ ¶Ç´Â ¾Æ·¡·Î ÀÌµ¿
+        // moveUp í”Œë˜ê·¸ì— ë”°ë¼ ìœ„ ë˜ëŠ” ì•„ë˜ë¡œ ì´ë™
         if (moveUp)
         {
             currentPosition.y = Mathf.Min(currentPosition.y + moveAmount, upperLimit);
@@ -74,7 +74,7 @@ public class ElebatorButton : MonoBehaviour
             currentPosition.y = Mathf.Max(currentPosition.y - moveAmount, lowerLimit);
         }
 
-        // »õ·Î¿î À§Ä¡·Î ÀÌµ¿
+        // ìƒˆë¡œìš´ ìœ„ì¹˜ë¡œ ì´ë™
         transform.parent.transform.position = currentPosition;
     }
 

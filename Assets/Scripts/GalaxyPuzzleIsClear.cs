@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GalaxyPuzzleIsClear : MonoBehaviour
 {
-    public GameObject[] spheres;  // °¢ ±¸Ã¼ ¿ÀºêÁ§Æ®µéÀ» ¹è¿­·Î ÀúÀå
+    public GameObject[] spheres;  // ê° êµ¬ì²´ ì˜¤ë¸Œì íŠ¸ë“¤ì„ ë°°ì—´ë¡œ ì €ì¥
 
 
     [HideInInspector]
@@ -24,12 +24,12 @@ public class GalaxyPuzzleIsClear : MonoBehaviour
 
     void Update()
     {
-        // ¸ğµç ±¸Ã¼ ¿ÀºêÁ§Æ®ÀÇ º¯¼ö°¡ trueÀÎÁö Ã¼Å©
+        // ëª¨ë“  êµ¬ì²´ ì˜¤ë¸Œì íŠ¸ì˜ ë³€ìˆ˜ê°€ trueì¸ì§€ ì²´í¬
         bool allSpheresTrue = true;
 
         foreach (GameObject sphere in spheres)
         {
-            // °¢ ±¸Ã¼ ¿ÀºêÁ§Æ®ÀÇ º¯¼ö¸¦ Ã¼Å©ÇÏ°í, ÇÏ³ª¶óµµ falseÀÌ¸é allSpheresTrue¸¦ false·Î ¼³Á¤
+            // ê° êµ¬ì²´ ì˜¤ë¸Œì íŠ¸ì˜ ë³€ìˆ˜ë¥¼ ì²´í¬í•˜ê³ , í•˜ë‚˜ë¼ë„ falseì´ë©´ allSpheresTrueë¥¼ falseë¡œ ì„¤ì •
             if (!sphere.GetComponent<ClearSphere>().clearOn)
             {
                 allSpheresTrue = false;
@@ -37,7 +37,7 @@ public class GalaxyPuzzleIsClear : MonoBehaviour
             }
         }
 
-        // ¸¸¾à ¸ğµç ±¸Ã¼ ¿ÀºêÁ§Æ®ÀÇ º¯¼ö°¡ trueÀÌ¸é Æ¯Á¤ ¿ÀºêÁ§Æ®ÀÇ º¯¼ö¸¦ true·Î º¯°æ
+        // ë§Œì•½ ëª¨ë“  êµ¬ì²´ ì˜¤ë¸Œì íŠ¸ì˜ ë³€ìˆ˜ê°€ trueì´ë©´ íŠ¹ì • ì˜¤ë¸Œì íŠ¸ì˜ ë³€ìˆ˜ë¥¼ trueë¡œ ë³€ê²½
         if (allSpheresTrue)
         {
             rend.material = CheckMaterial2;

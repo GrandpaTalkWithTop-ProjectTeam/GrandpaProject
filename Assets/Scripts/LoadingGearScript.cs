@@ -8,7 +8,7 @@ public class LoadingGearScript : MonoBehaviour
 
     void Update()
     {
-        // ¿ÀºêÁ§Æ®¸¦ ZÃàÀ» ±âÁØÀ¸·Î Áö¼ÓÀûÀ¸·Î È¸Àü½ÃÅ°´Â ÄÚµå
+        // ì˜¤ë¸Œì íŠ¸ë¥¼ Zì¶•ì„ ê¸°ì¤€ìœ¼ë¡œ ì§€ì†ì ìœ¼ë¡œ íšŒì „ì‹œí‚¤ëŠ” ì½”ë“œ
         transform.Rotate(new Vector3(0f, 0f, rotationSpeed) * Time.deltaTime);
     }
 }

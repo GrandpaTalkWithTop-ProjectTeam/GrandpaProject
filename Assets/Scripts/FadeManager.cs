@@ -5,45 +5,45 @@ using UnityEngine.UI;
 
 public class FadeManager : MonoBehaviour
 {
-    public Image fadeImage; // ÆäÀÌµå ÀÎ/¾Æ¿ô¿¡ »ç¿ëµÉ ÀÌ¹ÌÁö
-    public float fadeSpeed = 0.5f; // ÆäÀÌµå ¼Óµµ
+    public Image fadeImage; // í˜ì´ë“œ ì¸/ì•„ì›ƒì— ì‚¬ìš©ë  ì´ë¯¸ì§€
+    public float fadeSpeed = 0.5f; // í˜ì´ë“œ ì†ë„
 
     private void Start()
     {
-        // ÃÊ±â ¾ËÆÄ°ª ¼³Á¤ (Åõ¸íµµ)
-        fadeImage.color = new Color(0f, 0f, 0f, 1f); // °ËÀº»ö ¹è°æ¿¡¼­ ½ÃÀÛ (Åõ¸íµµ 1)
+        // ì´ˆê¸° ì•ŒíŒŒê°’ ì„¤ì • (íˆ¬ëª…ë„)
+        fadeImage.color = new Color(0f, 0f, 0f, 1f); // ê²€ì€ìƒ‰ ë°°ê²½ì—ì„œ ì‹œì‘ (íˆ¬ëª…ë„ 1)
         StartCoroutine(FadeIn());
     }
 
-    // ÆäÀÌµå ÀÎ ÄÚ·çÆ¾
+    // í˜ì´ë“œ ì¸ ì½”ë£¨í‹´
     IEnumerator FadeIn()
     {
         while (fadeImage.color.a > 0)
         {
-            // ¾ËÆÄ°ª °¨¼Ò (Åõ¸íµµ Áõ°¡)
+            // ì•ŒíŒŒê°’ ê°ì†Œ (íˆ¬ëª…ë„ ì¦ê°€)
             fadeImage.color = new Color(0f, 0f, 0f, fadeImage.color.a - fadeSpeed * Time.deltaTime);
             yield return null;
         }
     }
 
-    // ÆäÀÌµå ¾Æ¿ô ÄÚ·çÆ¾
+    // í˜ì´ë“œ ì•„ì›ƒ ì½”ë£¨í‹´
     IEnumerator FadeOut()
     {
         while (fadeImage.color.a < 1)
         {
-            // ¾ËÆÄ°ª Áõ°¡ (Åõ¸íµµ °¨¼Ò)
+            // ì•ŒíŒŒê°’ ì¦ê°€ (íˆ¬ëª…ë„ ê°ì†Œ)
             fadeImage.color = new Color(0f, 0f, 0f, fadeImage.color.a + fadeSpeed * Time.deltaTime);
             yield return null;
         }
     }
 
-    // ´Ù¸¥ ½ºÅ©¸³Æ®¿¡¼­ È£ÃâÇÏ¿© ÆäÀÌµå ÀÎ ½ÃÀÛ
+    // ë‹¤ë¥¸ ìŠ¤í¬ë¦½íŠ¸ì—ì„œ í˜¸ì¶œí•˜ì—¬ í˜ì´ë“œ ì¸ ì‹œì‘
     public void StartFadeIn()
     {
         StartCoroutine(FadeIn());
     }
 
-    // ´Ù¸¥ ½ºÅ©¸³Æ®¿¡¼­ È£ÃâÇÏ¿© ÆäÀÌµå ¾Æ¿ô ½ÃÀÛ
+    // ë‹¤ë¥¸ ìŠ¤í¬ë¦½íŠ¸ì—ì„œ í˜¸ì¶œí•˜ì—¬ í˜ì´ë“œ ì•„ì›ƒ ì‹œì‘
     public void StartFadeOut()
     {
         StartCoroutine(FadeOut());

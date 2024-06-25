@@ -3,21 +3,21 @@ using System.Collections.Generic;
 
 public class FreightCar : MonoBehaviour
 {
-    public Transform train; // ¸ŞÀÎ ±âÂ÷ÀÇ Transform
-    public float followDelay = 1.0f; // È­¹°Â÷°¡ ±âÂ÷¸¦ µû¶ó°¡´Â ½Ã°£ Áö¿¬ (ÃÊ ´ÜÀ§)
-    private Queue<Vector3> positionQueue = new Queue<Vector3>(); // ±âÂ÷ÀÇ À§Ä¡¸¦ ÀúÀåÇÒ Å¥
-    private Queue<Quaternion> rotationQueue = new Queue<Quaternion>(); // ±âÂ÷ÀÇ È¸ÀüÀ» ÀúÀåÇÒ Å¥
-    private float timer = 0f; // Å¸ÀÌ¸Ó º¯¼ö
-    private float updateInterval = 0.1f; // À§Ä¡¿Í È¸ÀüÀ» ±â·ÏÇÒ ½Ã°£ °£°İ
+    public Transform train; // ë©”ì¸ ê¸°ì°¨ì˜ Transform
+    public float followDelay = 1.0f; // í™”ë¬¼ì°¨ê°€ ê¸°ì°¨ë¥¼ ë”°ë¼ê°€ëŠ” ì‹œê°„ ì§€ì—° (ì´ˆ ë‹¨ìœ„)
+    private Queue<Vector3> positionQueue = new Queue<Vector3>(); // ê¸°ì°¨ì˜ ìœ„ì¹˜ë¥¼ ì €ì¥í•  í
+    private Queue<Quaternion> rotationQueue = new Queue<Quaternion>(); // ê¸°ì°¨ì˜ íšŒì „ì„ ì €ì¥í•  í
+    private float timer = 0f; // íƒ€ì´ë¨¸ ë³€ìˆ˜
+    private float updateInterval = 0.1f; // ìœ„ì¹˜ì™€ íšŒì „ì„ ê¸°ë¡í•  ì‹œê°„ ê°„ê²©
     public TrainPath tp;
 
     void Start()
     {
-        // ÃÊ±âÈ­ ½Ã Å¥¸¦ ºñ¿ó´Ï´Ù.
+        // ì´ˆê¸°í™” ì‹œ íë¥¼ ë¹„ì›ë‹ˆë‹¤.
         positionQueue.Clear();
         rotationQueue.Clear();
 
-        // ÃÊ±âÈ­ ½ÃÁ¡¿¡ ±âÂ÷ÀÇ À§Ä¡¿Í È¸ÀüÀ» ±â·ÏÇÕ´Ï´Ù.
+        // ì´ˆê¸°í™” ì‹œì ì— ê¸°ì°¨ì˜ ìœ„ì¹˜ì™€ íšŒì „ì„ ê¸°ë¡í•©ë‹ˆë‹¤.
         for (float t = 0; t < followDelay; t += updateInterval)
         {
             positionQueue.Enqueue(train.position);
@@ -29,11 +29,11 @@ public class FreightCar : MonoBehaviour
     {
         if (tp.isStopped == false)
         {
-            // ±âÂ÷ÀÇ ÇöÀç À§Ä¡¿Í È¸ÀüÀ» Å¥¿¡ ÀúÀåÇÕ´Ï´Ù.
+            // ê¸°ì°¨ì˜ í˜„ì¬ ìœ„ì¹˜ì™€ íšŒì „ì„ íì— ì €ì¥í•©ë‹ˆë‹¤.
             positionQueue.Enqueue(train.position);
             rotationQueue.Enqueue(train.rotation);
 
-            // ¿À·¡µÈ À§Ä¡¿Í È¸Àü Á¤º¸¸¦ Å¥¿¡¼­ Á¦°ÅÇÏ°í È­¹°Â÷¿¡ Àû¿ëÇÕ´Ï´Ù.
+            // ì˜¤ë˜ëœ ìœ„ì¹˜ì™€ íšŒì „ ì •ë³´ë¥¼ íì—ì„œ ì œê±°í•˜ê³  í™”ë¬¼ì°¨ì— ì ìš©í•©ë‹ˆë‹¤.
             if (positionQueue.Count > Mathf.CeilToInt(followDelay / updateInterval))
             {
                 transform.position = positionQueue.Dequeue();

@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
 
     void Start()
     {
-        // ·Îµù ÇÔ¼ö È£Ãâ
+        // ë¡œë”© í•¨ìˆ˜ í˜¸ì¶œ
         LoadSceneAsync(LoadScene);
     }
 
@@ -26,11 +26,11 @@ public class SceneLoader : MonoBehaviour
 
         while (!asyncOperation.isDone)
         {
-            // ·Îµù ¹Ù¿¡ ÁøÇà »óÈ² ¹İ¿µ
+            // ë¡œë”© ë°”ì— ì§„í–‰ ìƒí™© ë°˜ì˜
             float progress = Mathf.Clamp01(asyncOperation.progress / 0.9f);
             loadingBar.value = progress;
 
-            yield return null; // ´ÙÀ½ ÇÁ·¹ÀÓ±îÁö ´ë±â
+            yield return null; // ë‹¤ìŒ í”„ë ˆì„ê¹Œì§€ ëŒ€ê¸°
         }
     }
 }

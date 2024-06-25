@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainCall : MonoBehaviour
 {
-    public Transform player; // Ã¹ ¹øÂ° ¿ÀºêÁ§Æ®ÀÇ Transform
+    public Transform player; // Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Transform
     public KeyCode conKey;
     public float conCool = 0;
     public Camera cam;
@@ -50,7 +50,7 @@ public class TrainCall : MonoBehaviour
         RaycastHit raycastHit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out raycastHit, distance))
         {
-            // ¸¶¿ì½º°¡ ¿ÀºêÁ§Æ® À§¿¡ ÀÖÀ» ¶§ ¼öÇàÇÒ ÀÛ¾÷
+            // ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
             if ((raycastHit.collider.gameObject == this.gameObject) && (conCool <= 0) && (distance < 8f))
             {
                 interText.SetActive(true);
