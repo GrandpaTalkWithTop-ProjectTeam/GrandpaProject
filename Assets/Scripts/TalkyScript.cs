@@ -7,6 +7,7 @@ public class TalkyScript : MonoBehaviour
 {
     [Header("아이템")]
     public Item item;
+
     [Header("인벤토리")]
     public Inventory inventory;
 
@@ -22,7 +23,6 @@ public class TalkyScript : MonoBehaviour
 
     void Start()
     {
-
         if (animator != null)
         {
             // 애니메이션의 속도를 0으로 설정
@@ -30,9 +30,8 @@ public class TalkyScript : MonoBehaviour
         }
     }
 
-        void Update()
+    void Update()
     {
-
         float distance = Vector3.Distance(cam.transform.position, transform.position);
 
         if (conCool > 0)
@@ -40,15 +39,25 @@ public class TalkyScript : MonoBehaviour
             conCool -= Time.deltaTime;
         }
 
-
-
         RaycastHit raycastHit;
 
         int layerMask = ~LayerMask.GetMask("Ignore Raycast");
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out raycastHit, distance, layerMask))
+        if (
+            Physics.Raycast(
+                cam.transform.position,
+                cam.transform.forward,
+                out raycastHit,
+                distance,
+                layerMask
+            )
+        )
         {
             // 마우스가 오브젝트 위에 있을 때 수행할 작업
-            if ((raycastHit.collider.gameObject == this.gameObject) && (conCool <= 0) && (distance < 10f))
+            if (
+                (raycastHit.collider.gameObject == this.gameObject)
+                && (conCool <= 0)
+                && (distance < 10f)
+            )
             {
                 interText.SetActive(true);
                 InGameTextExpose igt;
@@ -64,20 +73,10 @@ public class TalkyScript : MonoBehaviour
                     TalkyObject.SetActive(true);
                     this.gameObject.SetActive(false);
 
-
                     AudioManager.instance.vocClip = vocClip;
                     AudioManager.instance.VOCAwake();
-
-
                 }
-
             }
-
         }
-
-
     }
-
-
-
 }

@@ -13,15 +13,13 @@ public class TalkyOnScript : MonoBehaviour
         {
             DisableReady();
         }
-
-
     }
 
     void DisableObject()
     {
         if (isEscapePressed)
         {
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);
         }
     }
 
