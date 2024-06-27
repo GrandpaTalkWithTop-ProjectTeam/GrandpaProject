@@ -5,41 +5,39 @@ using UnityEngine;
 public class BoxRemove : MonoBehaviour
 {
     public GameObject targetObject;
-
-    [SerializeField]
-    private Animator anim;
+    [SerializeField] private Animator anim;
+    [SerializeField] private Animator anima;
     public GameObject pl;
 
-    private bool rmatonce = false;
-    public Animator anima;
+    private bool isRemoved = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         anima.speed = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (targetObject != null)
-            if (rmatonce == false)
-            {
-                if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
-                {
-                    if (targetObject.transform.parent != null)
-                    {
-                        targetObject.transform.parent = null;
-                        targetObject.AddComponent<TimerDelete>();
-                    }
+        if (targetObject == null || isRemoved)
+            return;
 
-                    Rigidbody crb = targetObject.AddComponent<Rigidbody>();
-                    crb.useGravity = true;
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
+        {
+            DetachAndAddComponents();
+            anima.speed = 2f;
+            isRemoved = true;
+        }
+    }
 
-                    anima.speed = 2f;
+    private void DetachAndAddComponents()
+    {
+        if (targetObject.transform.parent != null)
+        {
+            targetObject.transform.parent = null;
+        }
 
-                    rmatonce = true;
-                }
-            }
+        targetObject.AddComponent<TimerDelete>();
+        Rigidbody crb = targetObject.AddComponent<Rigidbody>();
+        crb.useGravity = true;
     }
 }
